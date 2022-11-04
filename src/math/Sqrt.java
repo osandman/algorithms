@@ -2,7 +2,6 @@ package math;
 
 public class Sqrt {
     static long count;
-
     public static long calculateSqrtDecrement(long input) {
         long res = input / 2;
         count = 0;
