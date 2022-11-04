@@ -4,12 +4,13 @@ import help.Features;
 
 import java.util.Arrays;
 
-public class AbstractSorting {
+public abstract class AbstractSorting {
     int[] initArray;
     int[] resultArray;
     AbstractSorting(int[] initArray) {
         this.initArray = initArray;
     }
+    abstract public void sort();
     public int[] getResultArray() {
         return resultArray;
     }

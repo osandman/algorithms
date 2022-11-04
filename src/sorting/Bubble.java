@@ -13,7 +13,8 @@ public class Bubble extends AbstractSorting {
         return "Bubble sorting";
     }
 
-    public void bubbleSort(int[] initArray) {
+    @Override
+    public void sort() {
         resultArray = initArray.clone();
         for (int i = 0; i < resultArray.length - 1; i++) {
             for (int j = 0; j < resultArray.length - i - 1; j++) {

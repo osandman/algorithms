@@ -46,7 +46,7 @@ public class FizzBuzz {
             }
             resList.add(list.get(i));
         }
-        Time.finish();
+        Time.finish("v1");
 //        System.out.println(Arrays.toString(resList.toArray()));
         System.out.println("End of first method");
     }
@@ -67,7 +67,7 @@ public class FizzBuzz {
                 resList.add(list.get(i));
             }
         }
-        Time.finish();
+        Time.finish("v2");
 //        System.out.println(Arrays.toString(resList.toArray()));
         System.out.println("End of second method");
 

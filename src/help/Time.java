@@ -2,12 +2,14 @@ package help;
 
 
 public class Time {
-    static long delta;
+    static long delta, prevDelta;
     static long start;
     static long finish;
 
     public static void start() {
         start = System.currentTimeMillis();
+        //todo доделать расчет разницы времени со встроенной сортировкой
+        prevDelta = delta;
     }
 
     //подставить выбранный метод
@@ -15,12 +17,6 @@ public class Time {
         finish = System.currentTimeMillis();
         delta = finish - start;
         System.out.println("Время выполнения " + prompt + ": " + delta + "мс");
-        return delta;
-    }
-    public static long finish() {
-        finish = System.currentTimeMillis();
-        delta = finish - start;
-        System.out.println("Время выполнения: " + delta + "мс");
         return delta;
     }
 

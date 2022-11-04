@@ -19,31 +19,31 @@ public class Run {
 
         Selection sel = new Selection(initialArray);
         Bubble bub = new Bubble(initialArray);
-        JavaSort js = new JavaSort(initialArray);
+        JavaSort javaSort = new JavaSort(initialArray);
         System.out.println("Исходный массив:");
         System.out.println(Arrays.toString(initialArray));
         System.out.println("Начало выполнения сортировок ...");
 // сорт java внутренняя
         Time.start();
-        js.javaSort(initialArray);
-        Time.finish(js.toString());
-        js.printIsSortedOk();
-//        js.printResultArray();
+        javaSort.sort();
+        Time.finish(javaSort.toString());
+        javaSort.printIsSortedOk();
+//        javaSort.printResultArray();
 // сорт выбором вариант 1
         Time.start();
-        sel.selectionSortVar1(initialArray);
+        sel.sort();
         Time.finish(sel.toString());
         sel.printIsSortedOk();
 //        sel.printResultArray();
 // сорт выбором вариант 2
         Time.start();
-        sel.selectionSortVar2(initialArray);
+        sel.sortVar2();
         Time.finish(sel.toString());
         sel.printIsSortedOk();
 //        sel.printResultArray();
         // сорт пузырьком
         Time.start();
-        bub.bubbleSort(initialArray);
+        bub.sort();
         Time.finish(bub.toString());
         bub.printIsSortedOk();
 //        bub.printResultArray();

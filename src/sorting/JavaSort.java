@@ -13,7 +13,8 @@ public class JavaSort extends AbstractSorting {
         return "Java built-in sorting";
     }
 
-    public void javaSort(int[] initArray) {
+    @Override
+    public void sort() {
         resultArray = initArray.clone();
         //resultArray = Arrays.stream(initArray).toArray();
         Arrays.sort(resultArray);

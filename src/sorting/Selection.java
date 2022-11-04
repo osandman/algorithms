@@ -16,8 +16,9 @@ public class Selection extends AbstractSorting {
 
     int min, indMin;
 
-    public void selectionSortVar1(int[] initArray) {
-        selVar = "Var1";
+    @Override
+    public void sort() {
+        selVar = "var1";
         resultArray = initArray.clone();
         for (int i = 0; i < resultArray.length; i++) {
             min = resultArray[i];
@@ -36,8 +37,8 @@ public class Selection extends AbstractSorting {
     }
 
     // вариант сортировки выбором с обменом элементов каждый раз после нахождения
-    public void selectionSortVar2(int[] initArray) {
-        selVar = "Var2";
+    public void sortVar2() {
+        selVar = "var2";
         resultArray = initArray.clone();
         for (int i = 0; i < resultArray.length; i++) {
             for (int j = i + 1; j < resultArray.length; j++) {
