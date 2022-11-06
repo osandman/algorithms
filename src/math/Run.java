@@ -9,13 +9,10 @@ public class Run {
         long input = 3_424_568_479L;
         System.out.println("Ответ правильный = " + Math.sqrt(input));
         Time.start();
-        System.out.println(Sqrt.calculateSqrtDecrement(input));
-        Time.finish("Use method: calculateSqrtDecrement");
-        Time.start();
         System.out.println(Sqrt.calculateSqrtBinarySearch(input));
-        Time.finish("Use method: calculateSqrtBinarySearch");
-
+        long binTime = Time.finish("calculateSqrtBinarySearch");
+        Time.start();
+        System.out.println(Sqrt.calculateSqrtDecrement(input));
+        Time.finish("calculateSqrtDecrement", binTime);
     }
-
-
 }

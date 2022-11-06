@@ -2,7 +2,7 @@ package sorting;
 
 import help.Features;
 
-public class Bubble extends AbstractSorting {
+public class Bubble extends Sorting {
 
     Bubble(int[] initArray) {
         super(initArray);

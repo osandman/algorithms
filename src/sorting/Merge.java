@@ -1,6 +1,6 @@
 package sorting;
 
-public class Merge extends AbstractSorting {
+public class Merge extends Sorting {
     Merge(int[] initArray) {
         super(initArray);
     }

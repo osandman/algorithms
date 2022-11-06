@@ -2,8 +2,7 @@ package sorting;
 
 import help.Features;
 
-public class Selection extends AbstractSorting {
-    String selVar = "!!!";
+public class Selection extends Sorting {
 
     Selection(int[] initArray) {
         super(initArray);
@@ -11,14 +10,13 @@ public class Selection extends AbstractSorting {
 
     @Override
     public String toString() {
-        return "Selection sorting " + selVar;
+        return "Selection sorting";
     }
 
     int min, indMin;
 
     @Override
     public void sort() {
-        selVar = "var1";
         resultArray = initArray.clone();
         for (int i = 0; i < resultArray.length; i++) {
             min = resultArray[i];
@@ -32,19 +30,6 @@ public class Selection extends AbstractSorting {
             //меняем элементы, если найден минимальный элемент за индексом i в правой части массива
             if (indMin > i) {
                 Features.toSwap(resultArray, indMin, i);
-            }
-        }
-    }
-
-    // вариант сортировки выбором с обменом элементов каждый раз после нахождения
-    public void sortVar2() {
-        selVar = "var2";
-        resultArray = initArray.clone();
-        for (int i = 0; i < resultArray.length; i++) {
-            for (int j = i + 1; j < resultArray.length; j++) {
-                if (resultArray[j] < resultArray[i]) {
-                    Features.toSwap(resultArray, j, i);
-                }
             }
         }
     }

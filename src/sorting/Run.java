@@ -2,7 +2,9 @@ package sorting;
 
 import help.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Run {
@@ -15,38 +17,29 @@ public class Run {
         initialArray = random.ints(minValue, maxValue).limit(count).toArray();
 
         //initialArray = new int[]{-5, 4, -43, 2, 1};
-
-
-        Selection sel = new Selection(initialArray);
-        Bubble bub = new Bubble(initialArray);
-        JavaSort javaSort = new JavaSort(initialArray);
+        // сорт java внутренняя отдельно для сравнения
+        Sorting javaSort = new JavaSort(initialArray);
+        //создаем лист со всеми типами сортировок и добавляем в него их
+        List<Sorting> sortingList = new ArrayList<>();
+        // сорт выбором
+        sortingList.add(new Selection(initialArray));
+        // сорт выбором var2
+        sortingList.add(new SelectionVar2(initialArray));
+        // сорт пузырьком
+        sortingList.add(new Bubble(initialArray));
         System.out.println("Исходный массив:");
         System.out.println(Arrays.toString(initialArray));
         System.out.println("Начало выполнения сортировок ...");
-// сорт java внутренняя
         Time.start();
         javaSort.sort();
-        Time.finish(javaSort.toString());
-        javaSort.printIsSortedOk();
-//        javaSort.printResultArray();
-// сорт выбором вариант 1
-        Time.start();
-        sel.sort();
-        Time.finish(sel.toString());
-        sel.printIsSortedOk();
-//        sel.printResultArray();
-// сорт выбором вариант 2
-        Time.start();
-        sel.sortVar2();
-        Time.finish(sel.toString());
-        sel.printIsSortedOk();
-//        sel.printResultArray();
-        // сорт пузырьком
-        Time.start();
-        bub.sort();
-        Time.finish(bub.toString());
-        bub.printIsSortedOk();
-//        bub.printResultArray();
-        //Merge merge = new Merge();
+        long javaSortTime = Time.finish(javaSort.toString(), 0);
+
+        for (Sorting sorting : sortingList) {
+            Time.start();
+            sorting.sort();
+            Time.finish(sorting.toString(), javaSortTime);
+            sorting.printIsSortedOk();
+//            sorting.printResultArray();
+        }
     }
 }

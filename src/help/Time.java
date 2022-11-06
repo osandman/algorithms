@@ -8,17 +8,17 @@ public class Time {
 
     public static void start() {
         start = System.currentTimeMillis();
-        //todo доделать расчет разницы времени со встроенной сортировкой
-        prevDelta = delta;
     }
 
     //подставить выбранный метод
-    public static long finish(String prompt) {
+    public static long finish(String prompt, long... compareTime) {
         finish = System.currentTimeMillis();
         delta = finish - start;
-        System.out.println("Время выполнения " + prompt + ": " + delta + "мс");
+        if (compareTime.length != 0 && compareTime[0] != 0) {
+            System.out.printf("Время выполнения %s: %d мс, дольше в %d раз встроенной сортировки\n",
+                    prompt, delta, Math.round((double) delta / compareTime[0]));
+        } else System.out.printf("Время выполнения %s: %d мс\n", prompt, delta);
         return delta;
     }
-
 }
 
