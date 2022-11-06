@@ -27,7 +27,7 @@ public class Selection extends Sorting {
             }
             //меняем элементы, если найден минимальный элемент за индексом i в правой части массива
             //if (indMin > i) { //с проверкой работает дольше на 100000 элемантах
-                Features.toSwap(resultArray, indMin, i);
+            Features.toSwap(resultArray, indMin, i);
             //}
         }
     }
