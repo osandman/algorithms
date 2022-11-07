@@ -24,9 +24,9 @@ public class Run {
         // сорт выбором
         sortingList.add(new Selection(initialArray));
         // сорт выбором var2
-        sortingList.add(new SelectionVar2(initialArray));
+        //sortingList.add(new SelectionVar2(initialArray));
         // сорт пузырьком
-        sortingList.add(new Bubble(initialArray));
+        //sortingList.add(new Bubble(initialArray));
         System.out.println("Исходный массив:");
         System.out.println(Arrays.toString(initialArray));
         System.out.println("Начало выполнения сортировок ...");

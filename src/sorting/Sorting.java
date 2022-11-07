@@ -20,8 +20,8 @@ public abstract class Sorting {
     public void printIsSortedOk() {
         int[] sortArray = initArray.clone();
         Arrays.sort(sortArray);
-        boolean isReallySort = Arrays.equals(this.resultArray, sortArray);
-        System.out.println(this + " отсортирован верно: ------------------" + isReallySort);
+        boolean isCorrectSort = Arrays.equals(this.resultArray, sortArray);
+        System.out.println(this + " отсортирован верно: ------------------" + isCorrectSort);
     }
 
     public void printResultArray() {

@@ -3,10 +3,9 @@ package various;
 import help.Time;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
+
 
 public class FizzBuzz {
     public enum Quiz {

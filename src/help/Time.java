@@ -2,7 +2,7 @@ package help;
 
 
 public class Time {
-    static long delta, prevDelta;
+    static long delta;
     static long start;
     static long finish;
 
