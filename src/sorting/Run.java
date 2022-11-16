@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Run {
     public static void main(String[] args) {
-        int count = 100000;
+        int count = 20;
         int minValue = -10000;
         int maxValue = 10000;
         Random random = new Random();
@@ -32,7 +32,7 @@ public class Run {
         System.out.println("Начало выполнения сортировок ...");
         Time.start();
         javaSort.sort();
-        long javaSortTime = Time.finish(javaSort.toString(), 0);
+        long javaSortTime = Time.finish(javaSort.toString());
 
         for (Sorting sorting : sortingList) {
             Time.start();

@@ -15,7 +15,6 @@ public class JavaSort extends Sorting {
 
     @Override
     public void sort() {
-        resultArray = initArray.clone();
         //resultArray = Arrays.stream(initArray).toArray();
         Arrays.sort(resultArray);
     }

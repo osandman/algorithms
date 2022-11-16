@@ -2,9 +2,9 @@ package help;
 
 
 public class Time {
-    static long delta;
-    static long start;
-    static long finish;
+    private static long delta;
+    private static long start;
+    private static long finish;
 
     public static void start() {
         start = System.currentTimeMillis();

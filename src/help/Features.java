@@ -1,7 +1,5 @@
 package help;
 
-import java.util.Arrays;
-
 public class Features {
     public static void toSwap(int[] array, int i, int j) {
         int temp = array[i];

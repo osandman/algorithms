@@ -14,7 +14,6 @@ public class SelectionVar2 extends Sorting{
         return "Selection sorting var2";
     }
     public void sort() {
-        resultArray = initArray.clone();
         for (int i = 0; i < resultArray.length; i++) {
             for (int j = i + 1; j < resultArray.length; j++) {
                 if (resultArray[j] < resultArray[i]) {

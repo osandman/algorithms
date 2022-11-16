@@ -17,7 +17,6 @@ public class Selection extends Sorting {
 
     @Override
     public void sort() {
-        resultArray = initArray.clone();
         for (int i = 0; i < resultArray.length; i++) {
             indMin = i;
             for (int j = i + 1; j < resultArray.length; j++) {

@@ -1,8 +1,6 @@
 package math;
 import help.*;
 
-import java.lang.reflect.Method;
-
 public class Run {
     public static void main(String[] args) {
 //        long input = 1_000_000_000L;

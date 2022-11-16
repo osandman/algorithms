@@ -7,8 +7,10 @@ public abstract class Sorting {
     int[] initArray;
     int[] resultArray;
 
-    Sorting(int[] initArray) {
-        this.initArray = initArray;
+    Sorting(int[] initArr) {
+        initArray = initArr;
+        resultArray = new int[initArray.length];
+        System.arraycopy(initArray, 0, resultArray,0, initArray.length); //faster than clone
     }
 
     abstract public void sort();
@@ -17,10 +19,10 @@ public abstract class Sorting {
         return resultArray;
     }
 
+    //метод для тестирования
     public void printIsSortedOk() {
-        int[] sortArray = initArray.clone();
-        Arrays.sort(sortArray);
-        boolean isCorrectSort = Arrays.equals(this.resultArray, sortArray);
+        Arrays.sort(initArray);
+        boolean isCorrectSort = Arrays.equals(getResultArray(), initArray);
         System.out.println(this + " отсортирован верно: ------------------" + isCorrectSort);
     }
 
