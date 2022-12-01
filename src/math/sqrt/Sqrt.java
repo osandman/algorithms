@@ -1,4 +1,4 @@
-package math;
+package math.sqrt;
 
 public class Sqrt {
     static long count;

@@ -15,7 +15,6 @@ public class Run {
         Random random = new Random();
         int[] initialArray;
         initialArray = random.ints(minValue, maxValue).limit(count).toArray();
-
         //initialArray = new int[]{-5, 4, -43, 2, 1};
         // сорт java внутренняя отдельно для сравнения
         Sorting javaSort = new JavaSort(initialArray);

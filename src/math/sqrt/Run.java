@@ -1,4 +1,4 @@
-package math;
+package math.sqrt;
 import help.*;
 
 public class Run {

@@ -13,7 +13,7 @@ public class Selection extends Sorting {
         return "Selection sorting";
     }
 
-    int min, indMin;
+    int indMin;
 
     @Override
     public void sort() {
@@ -25,7 +25,7 @@ public class Selection extends Sorting {
                 }
             }
             //меняем элементы, если найден минимальный элемент за индексом i в правой части массива
-            //if (indMin > i) { //с проверкой работает дольше на 100000 элемантах
+            //if (indMin > i) { //с проверкой работает дольше на 100000 элементах
             Features.toSwap(resultArray, indMin, i);
             //}
         }
