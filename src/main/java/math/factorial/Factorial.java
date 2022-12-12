@@ -3,7 +3,7 @@ package math.factorial;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Run {
+public class Factorial {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         BigInteger res = fact(input.nextInt());

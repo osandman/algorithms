@@ -10,7 +10,7 @@ import java.math.BigInteger;
  * (eng. "greatest common divisor")
  */
 
-public class Run {
+public class Nod {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int num1, num2;
@@ -23,29 +23,26 @@ public class Run {
         int a = Math.abs(num1);
         int b = Math.abs(num2);
         System.out.printf("a = %d, b = %d\n", num1, num2);
-        System.out.printf("Recursive method: greatest common divisor = %d\n", recursiveNOD(a, b));
-        System.out.printf("While method: greatest common divisor = %d\n", NOD(a, b));
+        System.out.printf("Recursive method: greatest common divisor = %d\n", recursiveGCD(a, b));
+        System.out.printf("While method: greatest common divisor = %d\n", euclidGCD(a, b));
         System.out.println("Checking: " + BigInteger.valueOf(num1).gcd(BigInteger.valueOf(num2)));
     }
 
-    public static int recursiveNOD(int a, int b) {
-        //меняем местами аргументы если a < b
-        if (a < b) {
-            return recursiveNOD(b, a);
-        }
+    public static int recursiveGCD(int a, int b) {
         if (b != 0) {
-            return recursiveNOD(b, a % b);
+            return Math.abs(recursiveGCD(b, a % b));
         }
-        return a;
+        return Math.abs(a);
     }
 
-    public static int NOD(int a, int b) {
+    public static int euclidGCD(int a, int b) {
         int modulo; //остаток от деления
-        //меняем местами аргументы если a < b, modulo используем как временную переменную, чтобы не создавать новую
-        if (a < b) {
-            modulo = a;
-            a = b;
-            b = modulo;
+        a = Math.abs(a);
+        b = Math.abs(b);
+        if (b == 0) {
+            return a;
+        } else if (a == 0) {
+            return b;
         }
         while ((modulo = a % b) > 0) {
             a = b;

@@ -2,8 +2,9 @@ package math.sqrt;
 
 public class Sqrt {
     static long count;
+
     public static long calculateSqrtDecrement(long input) {
-        long res = input / 2;
+        long res = (input + 1) / 2;
         count = 0;
         while (true) {
             if (res * res > input) {
@@ -19,11 +20,8 @@ public class Sqrt {
 
     public static long calculateSqrtBinarySearch(long input) {
         count = 0;
-        if (input == 0) {
-            return 0;
-        }
-        long right = input / 2;
         long left = 1;
+        long right = (input + 1) / 2;
         long mid = (left + right) / 2;
         while (left <= right) {
             if (mid * mid > input) {
