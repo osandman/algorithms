@@ -1,56 +1,72 @@
 package math;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static java.lang.Math.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 import math.nod.Nod;
 import math.sqrt.Sqrt;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.stream.Stream;
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class MathTest {
-    @Test
-    public void recursiveNODTest() {
-        assertEquals(3, Nod.recursiveGCD(3, 21));
-        assertEquals(3, Nod.recursiveGCD(21, 3));
-        assertEquals(1, Nod.recursiveGCD(1, 17));
-        assertEquals(1, Nod.recursiveGCD(17, 1));
-        assertEquals(0, Nod.recursiveGCD(0, 0));
-        assertEquals(1, Nod.recursiveGCD(1, 1));
-        assertEquals(1, Nod.recursiveGCD(0, 1));
-        assertEquals(5, Nod.recursiveGCD(-5, 25));
-        assertEquals(5, Nod.recursiveGCD(-5, -25));
-        assertEquals(5, Nod.recursiveGCD(5, -25));
+
+    private static Stream<Arguments> gcdArguments() {
+        return Stream.of(
+                Arguments.of(3, 21, 3),
+                Arguments.of(21, 3, 3),
+                Arguments.of(5, 17, 1),
+                Arguments.of(0, 0, 0),
+                Arguments.of(1, 1, 1),
+                Arguments.of(1, 0, 1),
+                Arguments.of(-5, 25, 5),
+                Arguments.of(77, -7, 7),
+                Arguments.of(-133, -56, 7)
+        );
     }
 
-    @Test
-    public void NODTest() {
-        assertEquals(3, Nod.euclidGCD(3, 21));
-        assertEquals(3, Nod.euclidGCD(21, 3));
-        assertEquals(1, Nod.euclidGCD(1, 17));
-        assertEquals(1, Nod.euclidGCD(17, 1));
-        assertEquals(0, Nod.euclidGCD(0, 0));
-        assertEquals(1, Nod.euclidGCD(1, 1));
-        assertEquals(1, Nod.euclidGCD(0, 1));
-        assertEquals(5, Nod.euclidGCD(-5, 25));
-        assertEquals(5, Nod.euclidGCD(-5, -25));
-        assertEquals(5, Nod.euclidGCD(5, -25));
+    @DisplayName("Проверка вычисления НОД рекурсивным методом")
+    @ParameterizedTest(name = "{index}) => a={0}, b={1}, res={2}")
+    @MethodSource("gcdArguments")
+    public void recursiveGCDTest(int a, int b, int res) {
+        assertEquals(res, Nod.recursiveGCD(a, b));
     }
 
-    @Test
-    public void sqrtBinaryTest() {
-        assertEquals(0, Sqrt.calculateSqrtBinarySearch(0));
-        assertEquals(1, Sqrt.calculateSqrtBinarySearch(1));
-        assertEquals(8, Sqrt.calculateSqrtBinarySearch(64));
-        assertEquals(22, Sqrt.calculateSqrtBinarySearch(500));
-        assertEquals(12345, Sqrt.calculateSqrtBinarySearch(152399025));
+    @DisplayName("Проверка вычисления НОД методом Евклида")
+    @ParameterizedTest(name = "{index}) => a={0}, b={1}, res={2}")
+    @MethodSource("gcdArguments")
+    public void euclidGCDTest(int a, int b, int res) {
+        assertEquals(res, Nod.euclidGCD(a, b));
     }
 
+    @DisplayName("Проверка вычисления квадратного корня методом бинарного поиска")
+    @ParameterizedTest
+    @CsvSource(value = {
+            "0,0", "1,1", "64,8", "500,22", "152399025,12345"
+    })
+    public void sqrtBinaryTest(long num, long res) {
+        assertEquals(res, Sqrt.calculateSqrtBinarySearch(num));
+    }
+
+    @DisplayName("Проверка вычисления квадратного корня методом бинарного поиска с округлением")
     @Test
-    public void sqrtDecrementTest() {
-        assertEquals(0, Sqrt.calculateSqrtDecrement(0));
-        assertEquals(1, Sqrt.calculateSqrtDecrement(1));
-        assertEquals(8, Sqrt.calculateSqrtDecrement(64));
-        assertEquals(22, Sqrt.calculateSqrtDecrement(500));
-        assertEquals(12345, Sqrt.calculateSqrtDecrement(152399025));
+    public void sqrtBinaryTestApproximately() {
+        assertEquals(floor(sqrt(555) * 10) / 10, Sqrt.calculateSqrtBinarySearch(555), 1e1);
+    }
+
+    @DisplayName("Проверка вычисления квадратного корня методом перебора")
+    @ParameterizedTest
+    @CsvSource(value = {
+            "0,0", "1,1", "64,8", "500,22", "152399025,12345"
+    })
+    public void sqrtDecrementTest(long num, long res) {
+        assertEquals(res, Sqrt.calculateSqrtDecrement(num));
     }
 
 }
