@@ -4,30 +4,37 @@ package sorting;
 import java.util.Arrays;
 
 public abstract class Sorting {
-    int[] initArray;
-    int[] resultArray;
+    private final int[] initArray;
+    private int[] resultArray;
 
     Sorting(int[] initArr) {
         initArray = initArr;
         resultArray = new int[initArray.length];
-        System.arraycopy(initArray, 0, resultArray,0, initArray.length); //faster than clone
+        System.arraycopy(initArray, 0, resultArray, 0, initArray.length); //faster than clone
     }
 
     abstract public void sort();
 
+    public int[] getInitArray() {
+        return initArray;
+    }
     public int[] getResultArray() {
         return resultArray;
     }
 
-    //метод для тестирования
-    public void printIsSortedOk() {
-        Arrays.sort(initArray);
-        boolean isCorrectSort = Arrays.equals(getResultArray(), initArray);
-        System.out.println(this + " отсортирован верно: ------------------" + isCorrectSort);
+    //возварщает отсортированный массив внутренней соритровкой java
+    private int[] getSortedArray() {
+        int[] sortedArray = initArray.clone();
+        Arrays.sort(sortedArray);
+        return sortedArray;
+    }
+
+    private boolean isCorrectSort() {
+        return Arrays.equals(getSortedArray(), resultArray);
     }
 
     public void printResultArray() {
-        System.out.println("Печатаем массив после сортировки: " + this);
+        System.out.printf("Массив %s, отсортирован %b\n", this, isCorrectSort());
         System.out.println(Arrays.toString(resultArray));
         System.out.println("------------------------------------------------");
     }

@@ -14,10 +14,10 @@ public class Bubble extends Sorting {
 
     @Override
     public void sort() {
-        for (int i = 0; i < resultArray.length - 1; i++) {
-            for (int j = 0; j < resultArray.length - i - 1; j++) {
-                if (resultArray[j] > resultArray[j + 1]) {
-                    Features.toSwap(resultArray, j, j + 1);
+        for (int i = 0; i < getResultArray().length - 1; i++) {
+            for (int j = 0; j < getResultArray().length - i - 1; j++) {
+                if (getResultArray()[j] > getResultArray()[j + 1]) {
+                    Features.toSwap(getResultArray(), j, j + 1);
                 }
             }
         }

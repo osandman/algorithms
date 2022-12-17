@@ -37,7 +37,6 @@ public class Run {
             Time.start();
             sorting.sort();
             Time.finish(sorting.toString(), javaSortTime);
-            sorting.printIsSortedOk();
 //            sorting.printResultArray();
         }
     }

@@ -3,7 +3,6 @@ package math;
 import static java.lang.Math.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 import math.nod.Nod;
 import math.sqrt.Sqrt;
 import org.junit.jupiter.api.*;

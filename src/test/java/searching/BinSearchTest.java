@@ -19,7 +19,7 @@ class BinSearchTest {
     static int[] twoElementsArr = {-2, 2};
 
     private static int[] targetNums() {
-        return oneElementArr;
+        return numbers;
     }
 
     private static int[][] targetArrays() {
@@ -51,11 +51,12 @@ class BinSearchTest {
         assertEquals(Arrays.binarySearch(numbers, target), binRecursiveSearch(numbers, target));
     }
 
-    @DisplayName("Проверка рекурсивного метода бинарного поиска, отсутствуют элементы")
+    @DisplayName("Проверка двух методов бинарного поиска, отсутствуют элементы")
     @ParameterizedTest
     @ValueSource(ints = {5, 120, 146236})
-    public void binRecursiveSearchNotContainedTest(int target) {
+    public void binSearchNotContainedTest(int target) {
         assertEquals(-1, binRecursiveSearch(numbers, target));
+        assertEquals(-1, binCycleSearch(numbers, target));
     }
 
     @DisplayName("Проверка циклического метода бинарного поиска")
@@ -63,12 +64,5 @@ class BinSearchTest {
     @MethodSource({"targetNums"})
     public void binCycleSearchTest(int target) {
         assertEquals(Arrays.binarySearch(numbers, target), binCycleSearch(numbers, target));
-    }
-
-    @DisplayName("Проверка циклического метода бинарного поиска, отсутствуют элементы")
-    @ParameterizedTest
-    @ValueSource(ints = {5, 120, 146236})
-    public void binCycleSearchNotContainedTest(int target) {
-        assertEquals(-1, binCycleSearch(numbers, target));
     }
 }
