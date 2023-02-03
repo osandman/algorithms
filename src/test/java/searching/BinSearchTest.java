@@ -40,15 +40,16 @@ class BinSearchTest {
     @DisplayName("Проверка обоих методов бинарного поиска пустым массивом")
     @Test
     public void binSearchZeroArrayTest() {
-        assertEquals(-1, binCycleSearch(zeroArr, 0));
-        assertEquals(-1, binRecursiveSearch(zeroArr, 0));
+        assertEquals(-1, binCycleSearch(zeroArr, 0), "циклический метод");
+        assertEquals(-1, binRecursiveSearch(zeroArr, 0), "рекурсивный метод");
     }
 
-    @DisplayName("Проверка рекурсивного метода бинарного поиска")
+    @DisplayName("Проверка двух методов бинарного поиска")
     @ParameterizedTest
     @MethodSource({"targetNums"})
     public void binRecursiveSearchTest(int target) {
         assertEquals(Arrays.binarySearch(numbers, target), binRecursiveSearch(numbers, target));
+        assertEquals(Arrays.binarySearch(numbers, target), binCycleSearch(numbers, target));
     }
 
     @DisplayName("Проверка двух методов бинарного поиска, отсутствуют элементы")
@@ -57,12 +58,5 @@ class BinSearchTest {
     public void binSearchNotContainedTest(int target) {
         assertEquals(-1, binRecursiveSearch(numbers, target));
         assertEquals(-1, binCycleSearch(numbers, target));
-    }
-
-    @DisplayName("Проверка циклического метода бинарного поиска")
-    @ParameterizedTest
-    @MethodSource({"targetNums"})
-    public void binCycleSearchTest(int target) {
-        assertEquals(Arrays.binarySearch(numbers, target), binCycleSearch(numbers, target));
     }
 }

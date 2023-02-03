@@ -2,6 +2,7 @@ package sorting;
 
 
 import java.util.Arrays;
+import java.util.List;
 
 public abstract class Sorting {
     private final int[] initArray;
@@ -18,6 +19,7 @@ public abstract class Sorting {
     public int[] getInitArray() {
         return initArray;
     }
+
     public int[] getResultArray() {
         return resultArray;
     }
