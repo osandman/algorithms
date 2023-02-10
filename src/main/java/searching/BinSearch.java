@@ -3,7 +3,6 @@ package searching;
 public class BinSearch {
     private static int index;
 
-    // TODO: 15.12.2022 доделать рекурсивный бинарный поиск 
     public static int binRecursiveSearch(int[] numsArray, int num) {
         if (numsArray.length == 0) {
             return -1;
