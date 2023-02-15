@@ -1,7 +1,5 @@
 package sorting;
 
-import help.Features;
-
 public class Selection extends Sorting {
 
     Selection(int[] initArray) {
@@ -13,10 +11,10 @@ public class Selection extends Sorting {
         return "Selection sorting";
     }
 
-    int indMin;
 
     @Override
     public void sort() {
+        int indMin;
         for (int i = 0; i < getResultArray().length; i++) {
             indMin = i;
             for (int j = i + 1; j < getResultArray().length; j++) {
@@ -26,7 +24,7 @@ public class Selection extends Sorting {
             }
             //меняем элементы, если найден минимальный элемент за индексом i в правой части массива
             //if (indMin > i) { //с проверкой работает дольше на 100000 элементах
-            Features.toSwap(getResultArray(), indMin, i);
+            swap(getResultArray(), indMin, i);
             //}
         }
     }

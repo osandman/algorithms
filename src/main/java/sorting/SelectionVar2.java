@@ -1,9 +1,5 @@
 package sorting;
 
-import help.Features;
-
-import java.util.List;
-
 public class SelectionVar2 extends Sorting {
     // вариант сортировки выбором с обменом элементов каждый раз после нахождения
 
@@ -20,7 +16,7 @@ public class SelectionVar2 extends Sorting {
         for (int i = 0; i < getResultArray().length; i++) {
             for (int j = i + 1; j < getResultArray().length; j++) {
                 if (getResultArray()[j] < getResultArray()[i]) {
-                    Features.toSwap(getResultArray(), j, i);
+                    swap(getResultArray(), j, i);
                 }
             }
         }

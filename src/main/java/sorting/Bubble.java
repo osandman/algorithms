@@ -1,7 +1,5 @@
 package sorting;
 
-import help.Features;
-
 public class Bubble extends Sorting {
     Bubble(int[] initArray) {
         super(initArray);
@@ -14,10 +12,13 @@ public class Bubble extends Sorting {
 
     @Override
     public void sort() {
-        for (int i = 0; i < getResultArray().length - 1; i++) {
-            for (int j = 0; j < getResultArray().length - i - 1; j++) {
-                if (getResultArray()[j] > getResultArray()[j + 1]) {
-                    Features.toSwap(getResultArray(), j, j + 1);
+        boolean isSorted = false;
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < getResultArray().length - 1; i++) {
+                if (getResultArray()[i] > getResultArray()[i + 1]) {
+                    swap(getResultArray(), i, i + 1);
+                    isSorted = false;
                 }
             }
         }
