@@ -1,8 +1,8 @@
 package sorting;
 
-public class Selection extends Sorting {
+public class Selection<T extends Comparable<T>> extends Sorting<T> {
 
-    Selection(int[] initArray) {
+    public Selection(T[] initArray) {
         super(initArray);
     }
 
@@ -18,7 +18,7 @@ public class Selection extends Sorting {
         for (int i = 0; i < getResultArray().length; i++) {
             indMin = i;
             for (int j = i + 1; j < getResultArray().length; j++) {
-                if (getResultArray()[j] < getResultArray()[indMin]) {
+                if (getResultArray()[j].compareTo(getResultArray()[indMin]) < 0) {
                     indMin = j;
                 }
             }

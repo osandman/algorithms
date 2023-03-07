@@ -1,12 +1,13 @@
 package sorting;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
-//TODO перевести на возвращение массива, не листа
-public class Quick extends Sorting {
-    Quick(int[] initArray) {
+
+//TODO переделать на сортировку через массив
+public class Quick<T extends Comparable<T>> extends Sorting<T> {
+    public Quick(T[] initArray) {
         super(initArray);
     }
 
@@ -17,40 +18,28 @@ public class Quick extends Sorting {
 
     @Override
     public void sort() {
-        List<Integer> sortedList = recursiveQuickSort(getInitList());
-        setResultList(sortedList);
+        List<T> sortedList = recursiveQuickSort(Arrays.asList(getInitArray()));
+        setResultArray((T[]) sortedList.toArray(new Comparable[0]));
     }
 
-    @Override
-    public void printResultArray() {
-        System.out.printf("Массив %s, отсортирован %b\n", this, isCorrectSort());
-        System.out.println(getResultList());
-        System.out.println("------------------------------------------------");
-    }
-
-    @Override
-    boolean isCorrectSort() {
-        return getResultList().equals(getInitList().stream().sorted().toList());
-    }
-
-    private List<Integer> recursiveQuickSort(List<Integer> array) {
-        if (array.size() < 2) {
-            return array;
+    private List<T> recursiveQuickSort(List<T> list) {
+        if (list.size() < 2) {
+            return list;
         } else {
-            int pivot = array.get(0);
-            List<Integer> less = new ArrayList<>();
-            List<Integer> middle = new ArrayList<>();
-            List<Integer> greater = new ArrayList<>();
-            for (int element : array) {
-                if (element < pivot) {
+            T pivot = list.get(0);
+            List<T> less = new ArrayList<>();
+            List<T> middle = new ArrayList<>();
+            List<T> greater = new ArrayList<>();
+            for (T element : list) {
+                if (element.compareTo(pivot) < 0) {
                     less.add(element);
-                } else if (element > pivot) {
+                } else if (element.compareTo(pivot) > 0) {
                     greater.add(element);
                 } else {
                     middle.add(pivot);
                 }
             }
-            List<Integer> all = new ArrayList<>(recursiveQuickSort(less));
+            List<T> all = new ArrayList<>(recursiveQuickSort(less));
             all.addAll(middle);
             all.addAll(recursiveQuickSort(greater));
             return all;
