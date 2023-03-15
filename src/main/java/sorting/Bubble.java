@@ -1,7 +1,7 @@
 package sorting;
 
-public class Bubble extends Sorting {
-    Bubble(int[] initArray) {
+public class Bubble<T extends Comparable<T>> extends Sorting<T> {
+    Bubble(T[] initArray) {
         super(initArray);
     }
 
@@ -16,7 +16,7 @@ public class Bubble extends Sorting {
         while (!isSorted) {
             isSorted = true;
             for (int i = 0; i < getResultArray().length - 1; i++) {
-                if (getResultArray()[i] > getResultArray()[i + 1]) {
+                if (getResultArray()[i].compareTo(getResultArray()[i + 1]) > 0) {
                     swap(getResultArray(), i, i + 1);
                     isSorted = false;
                 }

@@ -3,8 +3,8 @@ package sorting;
 import java.util.Arrays;
 
 //внутренняя сортировка java из класса Arrays
-public class JavaSort extends Sorting {
-    JavaSort(int[] initArray) {
+public class JavaSort<T extends Comparable<T>> extends Sorting<T> {
+    JavaSort(T[] initArray) {
         super(initArray);
     }
 
