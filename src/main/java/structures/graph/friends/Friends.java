@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
  * <p>
  * В множестве, которое возвращает метод getAllFriendsAndPotentialFriends не должно быть индекса index.
  */
+
 public class Friends {
     private boolean[][] humanRelationships;
 
