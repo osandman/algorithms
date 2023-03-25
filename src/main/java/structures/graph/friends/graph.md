@@ -1,0 +1,1 @@
+![friends.png](..%2F..%2F..%2F..%2Fresources%2Ffriends.png)
