@@ -1,4 +1,4 @@
-package parsing;
+package parsing.html;
 
 import java.io.*;
 import java.util.Map;
