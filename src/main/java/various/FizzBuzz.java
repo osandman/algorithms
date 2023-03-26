@@ -6,28 +6,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+// тестирование показывает что метод с вложенными if работает быстрее, чем
+// последовательные if
+// для исключениея Integer кэширования тестировал на типе Double
 public class FizzBuzz {
     public enum Quiz {
         FIZZ, BUZZ, FIZZBUZZ
     }
-    static Time t = new Time();
+
     public static void main(String[] args) {
 
-        int n = 10000000;
+        int n = 10_000_000;
+        int maxValue = 10000;
         Random rand = new Random();
         //заполняем ArrayList числами от 0 до 100, количество элементов = n
-        List<Integer> intList = rand.ints(0, 100).limit(n).boxed().toList();
-        /*for (int num: intList) {
+//        List<Integer> inputList = rand.ints(0, 100).limit(n).boxed().toList();
+        List<Double> inputList = rand.doubles(0, maxValue)
+                .limit(n).boxed().toList();
+        /*for (int num: inputList) {
             System.out.print(num + " ");
         }*/
         System.out.println();
-        fizzBuzz(n, intList);
+        fizzBuzz(n, inputList);
         System.out.println();
-        fizzBuzzVer2(n, intList);
+        inputList = rand.doubles(0, maxValue)
+                .limit(n).boxed().toList();
+        fizzBuzzVer2(n, inputList);
     }
 
-    public static void fizzBuzz(int n, List<Integer> list) {
+    public static void fizzBuzz(int n, List<Double> list) {
         List<Object> resList = new ArrayList<>();
         Time.start();
         for (int i = 0; i < n; i++) {
@@ -50,7 +57,7 @@ public class FizzBuzz {
         System.out.println("End of first method");
     }
 
-    public static void fizzBuzzVer2(int n, List<Integer> list) {
+    public static void fizzBuzzVer2(int n, List<Double> list) {
         List<Object> resList = new ArrayList<>();
         Time.start();
         for (int i = 0; i < n; i++) {
