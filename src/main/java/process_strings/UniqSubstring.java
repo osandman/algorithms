@@ -11,6 +11,7 @@ public class UniqSubstring {
         String input = Generator.getRandomStringFromBigInteger(100);
         System.out.print(input + " " + getMaxUniqSubString(input));
     }
+
     public static String getMaxUniqSubString(String input) {
         if (input == null || input.length() == 0) {
             return "";
@@ -19,12 +20,10 @@ public class UniqSubstring {
         String maxSubstr = "";
         for (int i = 0; i < input.length(); i++) {
             char ch = input.charAt(i);
-            if (!chars.contains(ch)) {
-                chars.add(ch);
+            boolean wasAdd = chars.add(ch);
+            if (wasAdd) {
                 if (chars.size() > maxSubstr.length()) {
-                    StringBuilder builder = new StringBuilder();
-                    chars.forEach(builder::append);
-                    maxSubstr = builder.toString();
+                    maxSubstr = chars.toString().replaceAll("[\\[\\], ]", "");
                 }
             } else {
                 i -= chars.size();
